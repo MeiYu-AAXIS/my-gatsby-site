@@ -8,7 +8,13 @@ import {
   navLinkText,
 } from "./layout.module.css";
 
-const Layout = ({ pageTitle, children }) => {
+interface LayoutProps {
+  pageTitle: string;
+  children: React.ReactNode;
+}
+
+const Layout = (props: LayoutProps) => {
+  const { pageTitle, children } = props;
   return (
     <div className={container}>
       <title>{pageTitle}</title>
@@ -22,6 +28,11 @@ const Layout = ({ pageTitle, children }) => {
           <li className={navLinkItem}>
             <Link to="/about" className={navLinkText}>
               About
+            </Link>
+          </li>
+          <li className={navLinkItem}>
+            <Link to="/blog" className={navLinkText}>
+              Blog
             </Link>
           </li>
         </ul>
